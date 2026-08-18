@@ -1,3 +1,40 @@
 ---
-return Astro.redirect('/scratchbaby');
 ---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="refresh" content="0;url=/scratchbaby" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Sundae Synth Co</title>
+	</head>
+	<body>
+		<a href="/scratchbaby">Enter</a>
+	</body>
+</html>
+
+<style>
+	html, body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background:
+			linear-gradient(180deg, rgba(45, 65, 80, 0.3) 0%, rgba(30, 50, 65, 0.5) 100%),
+			url('/sky_background.jpg') center / cover no-repeat;
+		background-color: #1e3241;
+	}
+
+	a {
+		color: #f2a7c4;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-size: 1.2rem;
+		text-decoration: none;
+	}
+</style>
