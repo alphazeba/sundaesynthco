@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import scratchBabyImg from '../assets/scratchbaby-screenshot.png';
+import InstallMoonbase from '../components/InstallMoonbase.astro';
 ---
 
 <Layout title="Scratch Baby">
@@ -8,7 +11,12 @@ import Layout from '../layouts/Layout.astro';
 		<p class="product-tagline">Sample-slicing synthesizer for the adventurous producer</p>
 
 		<div class="screenshot-wrapper">
-			<img src="/scratchbaby-screenshot.png" alt="Scratch Baby plugin interface showing waveform display, slice controls, and per-voice knobs" class="screenshot" />
+		    <Image
+			    src={scratchBabyImg}
+			    alt="Scratch Baby plugin interface showing waveform display, slice controls, and per-voice knobs"
+			    class="screenshot"
+			    loading="eager"
+		    />
 		</div>
 
 		<div class="video-wrapper">
@@ -34,10 +42,15 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 
 		<div class="buttons">
-			<a href="#" class="btn btn-purchase">Purchase — $49</a>
-			<a href="#" class="btn btn-trial">Download Trial</a>
+			<button class="btn btn-purchase" onclick="Moonbase.add_to_cart({ product_id: 'scratch-baby', show_cart: true })">
+				Purchase — <span data-moonbase-render="product.scratch-baby.price">TBD</span>
+			</button>
+			<button class="btn btn-trial" onclick="Moonbase.download_product({ product_id: 'scratch-baby' })">
+				Download Trial
+			</button>
 		</div>
 	</main>
+	<InstallMoonbase/>
 </Layout>
 
 <style>
@@ -133,6 +146,8 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 1.1rem;
 		font-weight: 700;
 		text-decoration: none;
+		border: none;
+		cursor: pointer;
 		transition: transform 0.15s ease, box-shadow 0.15s ease;
 	}
 
