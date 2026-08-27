@@ -57,7 +57,11 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 </Layout>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+	:root {
+		--pink: #efa9da;
+	}
 
 	.product-page {
 		min-height: 100vh;
@@ -86,9 +90,9 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 	}
 
 	.product-tagline {
-		font-family: 'Modak', cursive;
+		font-family: 'Shrikhand', cursive;
 		font-size: clamp(1.5rem, 4vw, 2.5rem);
-		color: #f2a7c4;
+		color: var(--pink);
 		margin: 0 0 1.5rem;
 		font-weight: 400;
 		text-align: center;
@@ -124,7 +128,7 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 		overflow: hidden;
 		border: 2px solid #1a2a35;
 		box-shadow:
-			4px 4px 0px #f2a7c4;
+			4px 4px 0px var(--pink);
 	}
 
 	.screenshot {
@@ -142,7 +146,7 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 		overflow: hidden;
 		border: 2px solid #1a2a35;
 		box-shadow:
-			4px 4px 0px #f2a7c4;
+			4px 4px 0px var(--pink);
 	}
 
 	.video-wrapper iframe {
@@ -162,7 +166,7 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 	.content-section p {
 		margin: 0 0 1.25rem;
 		font-size: 1.05rem;
-		color: #c8d4dc;
+		color: #fbf1da;
 	}
 
 	.buttons {
@@ -194,18 +198,18 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 	}
 
 	.btn-purchase {
-		background: #f2a7c4;
+		background: var(--pink);
 		color: #1a2a35;
 	}
 
 	.btn-purchase:hover {
-		background: #f7bdd4;
+		background: var(--pink);
 	}
 
 	.btn-trial {
 		background: transparent;
-		color: #f2a7c4;
-		border: 2px solid #f2a7c4;
+		color: var(--pink);
+		border: 2px solid var(--pink);
 	}
 
 	.btn-trial:hover {
