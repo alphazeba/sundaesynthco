@@ -21,33 +21,32 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 			</div>
 		</div>
 
-		<p class="product-tagline">Playable turntable inspired sampler</p>
+		<p class="product-tagline">Playable Turntable Sampler</p>
 
-		<div class="video-wrapper">
-			<iframe
-				src="https://www.youtube.com/embed/64azH-tCn2E"
-				title="Scratch Baby demo"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
-			></iframe>
-		</div>
-
-		<div class="description">
+		<div class="content-section">
+			<div class="video-wrapper">
+				<iframe
+					src="https://www.youtube.com/embed/PLd_091E9-0?si=kvYCM0v6Adwz33vM"
+					title="Scratch Baby demo"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			</div>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis magna at ante tincidunt, vel scelerisque nulla luctus. Fusce vel metus at libero fermentum bibendum non sit amet risus. Praesent euismod sapien a urna volutpat, ac dictum eros consequat.
+			    Scratch Baby is your varispeed playground. At its core is a flexible system for designing and performing different playback-speed articulations to suit the way you want to play. Each key across the octave has its own controls for pitch, glide up, and glide down, giving you independent control over how the sample moves between speeds.
 			</p>
 			<p>
-				Donec ultricies nunc nec felis tincidunt, a volutpat magna pharetra. Integer sit amet justo vel arcu sodales tincidunt. Nulla facilisi. Suspendisse potenti. Cras vehicula lorem id felis lacinia, non faucibus purus malesuada.
+			    This gives you precise control over how the sample moves between speeds, letting you create everything from sharp, scratch-like movements to smooth tape-stop-style transitions and expressive pitch bends. Instead of relying on automation curves or manually editing playback speed, you can perform these articulations directly from your keyboard or MIDI controller. Every note becomes an opportunity to move through the sample in a different way, making speed itself part of the performance.
 			</p>
 			<p>
-				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas imperdiet lectus vel condimentum tincidunt. Sed non magna at nulla ultrices fringilla vel in purus.
+			    Scratch Baby is designed for producers, beatmakers, DJs, and sound designers who want a more physical and expressive relationship with their samples. Load up a vocal, drum hit, texture, loop, or any other sound, then play it like an instrument—jumping between speeds, dragging through the audio, reversing direction, and creating your own rhythmic and melodic movements. It takes the fundamental behavior of a record or tape being moved by hand and turns it into something you can configure, perform, and make your own.
 			</p>
 		</div>
 
 		<div class="buttons">
 			<button class="btn btn-purchase" onclick="Moonbase.add_to_cart({ product_id: 'scratch-baby', show_cart: true })">
-				Purchase — <span data-moonbase-render="product.scratch-baby.price">TBD</span>
+				Purchase — <span data-moonbase-render="product.scratch-baby.price">🔒</span>
 			</button>
 			<button class="btn btn-trial" onclick="Moonbase.download_product({ product_id: 'scratch-baby' })">
 				Download Trial
@@ -58,6 +57,8 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 </Layout>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
 	.product-page {
 		min-height: 100vh;
 		display: flex;
@@ -85,9 +86,10 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 	}
 
 	.product-tagline {
-		font-size: 1.2rem;
+		font-family: 'Modak', cursive;
+		font-size: clamp(1.5rem, 4vw, 2.5rem);
 		color: #f2a7c4;
-		margin: 0 0 3rem;
+		margin: 0 0 1.5rem;
 		font-weight: 400;
 		text-align: center;
 	}
@@ -132,10 +134,10 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 	}
 
 	.video-wrapper {
-		width: 100%;
-		max-width: 200px;
+		float: left;
+		width: 250px;
 		aspect-ratio: 9 / 16;
-		margin-bottom: 3rem;
+		margin: 0 1.5rem 1rem 0;
 		border-radius: 12px;
 		overflow: hidden;
 		border: 2px solid #1a2a35;
@@ -149,14 +151,15 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 		border: none;
 	}
 
-	.description {
-		max-width: 680px;
-		text-align: center;
+	.content-section {
+		max-width: 900px;
+		width: 100%;
 		margin-bottom: 3rem;
 		line-height: 1.75;
+		overflow: hidden;
 	}
 
-	.description p {
+	.content-section p {
 		margin: 0 0 1.25rem;
 		font-size: 1.05rem;
 		color: #c8d4dc;
@@ -164,14 +167,18 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 
 	.buttons {
 		display: flex;
-		gap: 1.5rem;
+		gap: 2rem;
 		flex-wrap: wrap;
 		justify-content: center;
+		margin-top: 2rem;
+		width: 100%;
+		clear: both;
 	}
 
 	.btn {
 		display: inline-block;
 		padding: 1rem 2.5rem;
+		margin: 0 1rem;
 		border-radius: 8px;
 		font-size: 1.1rem;
 		font-weight: 700;
