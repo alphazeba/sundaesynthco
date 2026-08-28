@@ -56,16 +56,14 @@ import logoImg from '../assets/scratchbabylogo.png';
 		</div>
 		<p class="segment-title">Examples</p>
 		<div class="content-section">
-		    <div>
-			<Audio title="Alright!" src="/audio/alright.mp3" />
-		    </div>
-		    <div>
-			<Audio title="Ghosty" src="/audio/ghosty2.mp3" />
-		    </div>
-		    <div>
-			<Audio title="Horns" src="/audio/horns.mp3" />
-		    </div>
-
+		    <Audio
+			id="onlyone"
+			files={[
+			    { title: "Alright!", src: "/audio/alright.mp3" },
+			    { title: "Ghosty", src: "/audio/ghosty2.mp3" },
+			    { title: "Horns", src: "/audio/horns.mp3" },
+			]}
+		    />
 		</div>
 
 		<div class="buttons">
@@ -82,6 +80,15 @@ import logoImg from '../assets/scratchbabylogo.png';
 
 	:root {
 		--pink: #efa9da;
+		--pink-tint: rgba(239, 169, 218, 0.1);
+		--dark: #1a2a35;
+		--bg-color: #1e3241;
+		--text-base: #e8e0d4;
+		--text-body: #fbf1da;
+		--yellow-shadow: #dfc47b;
+		--btn-shadow: rgba(0, 0, 0, 0.3);
+		--gradient-top: rgba(45, 65, 80, 0.4);
+		--gradient-bottom: rgba(30, 50, 65, 0.6);
 	}
 
 	.product-page {
@@ -91,11 +98,11 @@ import logoImg from '../assets/scratchbabylogo.png';
 		align-items: center;
 		padding: 4rem 3rem;
 		background:
-			linear-gradient(180deg, rgba(45, 65, 80, 0.4) 0%, rgba(30, 50, 65, 0.6) 100%),
+			linear-gradient(180deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%),
 			url('/sky_background.jpg') center / cover no-repeat;
-		background-color: #1e3241;
+		background-color: var(--bg-color);
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		color: #e8e0d4;
+		color: var(--text-base);
 	}
 
 	.cart-icon {
@@ -104,8 +111,8 @@ import logoImg from '../assets/scratchbabylogo.png';
 		right: 1.5rem;
 		z-index: 100;
 		background: var(--pink);
-		color: #1a2a35;
-		border: 2px solid #1a2a35;
+		color: var(--dark);
+		border: 2px solid var(--dark);
 		border-radius: 0 0 8px 8px;
 		width: 2.5rem;
 		height: 3rem;
@@ -171,9 +178,9 @@ import logoImg from '../assets/scratchbabylogo.png';
 		width: 100%;
 		border-radius: 12px;
 		overflow: hidden;
-		border: 2px solid #1a2a35;
+		border: 2px solid var(--dark);
 		box-shadow:
-			4px 4px 0px #dfc47b;
+			4px 4px 0px var(--yellow-shadow);
 	}
 
 	.screenshot {
@@ -189,9 +196,9 @@ import logoImg from '../assets/scratchbabylogo.png';
 		margin: 0 3rem 2rem 0;
 		border-radius: 12px;
 		overflow: hidden;
-		border: 2px solid #1a2a35;
+		border: 2px solid var(--dark);
 		box-shadow:
-			4px 4px 0px #dfc47b;
+			4px 4px 0px var(--yellow-shadow);
 	}
 
 	.video-wrapper iframe {
@@ -216,7 +223,7 @@ import logoImg from '../assets/scratchbabylogo.png';
 	.content-section p {
 		margin: 0 0 1.25rem;
 		font-size: 1.05rem;
-		color: #fbf1da;
+		color: var(--text-body);
 	}
 
 	.buttons {
@@ -244,13 +251,13 @@ import logoImg from '../assets/scratchbabylogo.png';
 
 	.btn:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 8px 25px var(--btn-shadow);
 	}
 
 	.btn-purchase {
 		background: var(--pink);
-		color: #1a2a35;
-		border: 2px solid #1a2a35;
+		color: var(--dark);
+		border: 2px solid var(--dark);
 	}
 
 	.btn-purchase:hover {
@@ -264,7 +271,7 @@ import logoImg from '../assets/scratchbabylogo.png';
 	}
 
 	.btn-trial:hover {
-		background: rgba(239, 169, 218, 0.1);
+		background: var(--pink-tint);
 	}
 
 	@media (max-width: 500px) {
