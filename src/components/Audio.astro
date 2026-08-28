@@ -1,6 +1,10 @@
 ---
+import { parseFile } from 'music-metadata';
+import path from 'node:path';
+
 interface AudioFile {
     title: string;
+    subtitle: string;
     src: string;
 }
 interface Props {
@@ -8,12 +12,36 @@ interface Props {
     files: AudioFile[];
 }
 const { id, files }  = Astro.props;
+
+function formatDuration(seconds: number): string {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.round(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Read audio duration at build time from files in the public/ directory
+const filesWithDuration = await Promise.all(
+    files.map(async (file) => {
+        let duration = '';
+        try {
+            const filePath = path.join(process.cwd(), 'public', file.src);
+            const metadata = await parseFile(filePath);
+            if (metadata.format.duration) {
+                duration = formatDuration(metadata.format.duration);
+            }
+        } catch (err) {
+            console.warn(`Could not read duration for ${file.src}:`, err);
+        }
+        return { ...file, duration };
+    })
+);
 ---
 <div class="audio-card" data-audio-card data-player-id={id}>
     <div class="audio-list">
-        {files.map((file, index) => (
+        {filesWithDuration.map((file, index) => (
 	<div class:list={["audio-item", { active: index === 0 }]} data-src={file.src}>
-                <span class="audio-item-title">{file.title}</span>
+	    <span class="audio-item-title">{index + 1}. {file.title} - {file.subtitle}</span>
+                {file.duration && <span class="audio-item-duration">{file.duration}</span>}
             </div>
         ))}
     </div>
@@ -59,13 +87,15 @@ const { id, files }  = Astro.props;
     }
     .audio-item {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         background: none;
         border: none;
         cursor: pointer;
         color: inherit;
         font: inherit;
-        width: 100%;
+	padding: 0 1em 0 1em;
     }
     .audio-item:hover {
 	background-color: var(--pink);
@@ -79,6 +109,10 @@ const { id, files }  = Astro.props;
     }
     .audio-item-title {
         font-size: 0.9rem;
-        text-align: center;
+    }
+    .audio-item-duration {
+        font-size: 0.85rem;
+        opacity: 0.7;
+        font-variant-numeric: tabular-nums;
     }
 </style>
