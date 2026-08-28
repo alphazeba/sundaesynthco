@@ -59,14 +59,22 @@ import logoImg from '../assets/scratchbabylogo.png';
 		    <Audio
 			id="onlyone"
 			files={[
-			    { title: "Alright!", subtitle: "Scratch a sample", src: "/audio/alright.mp3" },
-			    { title: "Ghosty", subtitle: "Put emotion in a drone", src: "/audio/ghosty2.mp3" },
-			    { title: "Horns", subtitle: "Hip-hop", src: "/audio/horns.mp3" },
+			    { title: "Alright!", subtitle: "Murder a sample", src: "/audio/alright.mp3" },
+			    { title: "Ghosty", subtitle: "Emote a drone", src: "/audio/ghosty2.mp3" },
+			    { title: "Horns", subtitle: "Hip-hop?", src: "/audio/horns.mp3" },
 			]}
 		    />
 		</div>
 
 		<div class="buttons">
+			<div class="purchase-wrapper-wrapper">
+			    <div class="purchase-wrapper">
+				    <button class="btn btn-purchase" disabled onclick="Moonbase.add_to_cart({ product_id: 'scratch-baby', show_cart: true })">
+					    Purchase — <span data-moonbase-render="product.scratch-baby.price">TBD</span>
+				    </button>
+				    <span class="coming-soon-banner">Coming Soon</span>
+			    </div>
+			</div>
 			<button class="btn btn-trial" onclick="Moonbase.download_product({ product_id: 'scratch-baby' })">
 				Download Trial
 			</button>
@@ -89,6 +97,7 @@ import logoImg from '../assets/scratchbabylogo.png';
 		--btn-shadow: rgba(0, 0, 0, 0.3);
 		--gradient-top: rgba(45, 65, 80, 0.4);
 		--gradient-bottom: rgba(30, 50, 65, 0.6);
+		--green: #49796b;
 	}
 
 	.product-page {
@@ -147,6 +156,8 @@ import logoImg from '../assets/scratchbabylogo.png';
 		margin: 0 0 1.5rem;
 		font-weight: 400;
 		text-align: center;
+		-webkit-text-stroke: 4px var(--dark);
+		paint-order: stroke fill;
 	}
 
 	.screenshot-container {
@@ -262,6 +273,44 @@ import logoImg from '../assets/scratchbabylogo.png';
 
 	.btn-purchase:hover {
 		background: var(--pink);
+	}
+
+	.purchase-wrapper {
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+		border-radius: 8px;
+	}
+
+	.purchase-wrapper-wrapper {
+	    margin: 0 1rem;
+	}
+	.purchase-wrapper .btn-purchase {
+		cursor: not-allowed;
+		pointer-events: none;
+		margin: 1px;
+	}
+
+	.coming-soon-banner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-30%, -50%) rotate(30deg);
+		background: var(--text-body);
+		color: var(--dark);
+		font-weight: 700;
+		font-size: 0.8rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		padding: 0.35rem 0;
+		width: 110%;
+		text-align: center;
+		white-space: nowrap;
+		pointer-events: none;
+		user-select: none;
+		-webkit-user-select: none;
+		border-top: 2px solid var(--dark);
+		border-bottom: 2px solid var(--dark);
 	}
 
 	.btn-trial {

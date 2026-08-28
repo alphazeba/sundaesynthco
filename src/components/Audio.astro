@@ -80,6 +80,7 @@ const filesWithDuration = await Promise.all(
 	background-color: var(--yellow-shadow);
 	color: var(--dark);
 	overflow: hidden;
+	box-shadow: 4px 4px 0px var(--pink);
     }
     .audio-list {
         display: flex;
@@ -92,6 +93,7 @@ const filesWithDuration = await Promise.all(
         justify-content: space-between;
         background: none;
         border: none;
+        border-bottom: 1px solid var(--dark);
         cursor: pointer;
         color: inherit;
         font: inherit;
@@ -101,7 +103,8 @@ const filesWithDuration = await Promise.all(
 	background-color: var(--pink);
     }
     .audio-item.active {
-	background-color: var(--pink);
+	background-color: var(--green);
+	color: var(--text-body);
     }
     .audio-player {
         display: block;
