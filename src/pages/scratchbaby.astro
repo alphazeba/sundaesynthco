@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import scratchBabyImg from '../assets/scratchbaby-screenshot-crop.png';
 import InstallMoonbase from '../components/InstallMoonbase.astro';
+import Audio from '../components/Audio.astro';
+
+import titleScreenshotImg from '../assets/scratchbaby-screenshot-crop.png';
+import logoImg from '../assets/scratchbabylogo.png';
 ---
 
 <Layout title="Scratch Baby">
@@ -18,18 +21,18 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 		<h1 class="sr-only">Scratch Baby</h1>
 
 		<div class="screenshot-container">
-			<img src="/scratchbabylogo.png" alt="" class="peek-logo" aria-hidden="true" />
+			<Image src={logoImg} alt="" class="peek-logo" aria-hidden="true" />
 			<div class="screenshot-wrapper">
 				<Image
-					src={scratchBabyImg}
+					src={titleScreenshotImg}
 					alt="Scratch Baby plugin interface showing waveform display, slice controls, and per-voice knobs"
 					class="screenshot"
-					loading="eager"
+					priority
 				/>
 			</div>
 		</div>
 
-		<p class="product-tagline">Playable Turntable Sampler</p>
+		<p class="segment-title">Playable Turntable Sampler</p>
 
 		<div class="content-section">
 			<div class="video-wrapper">
@@ -50,6 +53,19 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 			<p>
 			    Scratch Baby is designed for producers, beatmakers, DJs, and sound designers who want a more physical and expressive relationship with their samples. Load up a vocal, drum hit, texture, loop, or any other sound, then play it like an instrument—jumping between speeds, dragging through the audio, reversing direction, and creating your own rhythmic and melodic movements. It takes the fundamental behavior of a record or tape being moved by hand and turns it into something you can configure, perform, and make your own.
 			</p>
+		</div>
+		<p class="segment-title">Examples</p>
+		<div class="content-section">
+		    <div>
+			<Audio title="Alright!" src="/audio/alright.mp3" />
+		    </div>
+		    <div>
+			<Audio title="Ghosty" src="/audio/ghosty2.mp3" />
+		    </div>
+		    <div>
+			<Audio title="Horns" src="/audio/horns.mp3" />
+		    </div>
+
 		</div>
 
 		<div class="buttons">
@@ -117,7 +133,7 @@ import InstallMoonbase from '../components/InstallMoonbase.astro';
 		border: 0;
 	}
 
-	.product-tagline {
+	.segment-title {
 		font-family: 'Shrikhand', cursive;
 		font-size: clamp(1.5rem, 4vw, 2.5rem);
 		color: var(--pink);

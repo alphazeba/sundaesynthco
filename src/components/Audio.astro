@@ -1,0 +1,36 @@
+---
+interface Props {
+    src: string;
+    title: string;
+    background?: string;
+}
+const { src, title, background = '#2a4a5a' } = Astro.props;
+---
+<div class="audio-card" style={`background: ${background};`}>
+    <span class="audio-title">{title}</span>
+    <div class="audio-wrapper">
+        <audio class="audio-player" controls src={src} loading="lazy" />
+    </div>
+</div>
+<style>
+    .audio-card {
+        border: 2px solid #1a2a35;
+        border-radius: 12px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .audio-title {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .audio-wrapper {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .audio-player {
+        display: block;
+        width: 100%;
+    }
+</style>
