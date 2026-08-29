@@ -40,12 +40,18 @@ const filesWithDuration = await Promise.all(
     <div class="audio-list">
         {filesWithDuration.map((file, index) => (
 	<div class:list={["audio-item", { active: index === 0 }]} data-src={file.src}>
-	    <span class="audio-item-title">{index + 1}. {file.title} <span>- {file.subtitle}</span></span>
-                {file.duration && <span class="audio-item-duration">{file.duration}</span>}
+	    <span class="audio-item-title">
+		<span class="audio-item-index">{index + 1}.&nbsp;</span>
+		<span>
+		    <span class="title-main">{file.title}&nbsp;</span>
+		    <span class="title-sub">- {file.subtitle}</span>
+		</span>
+	    </span>
+	    {file.duration && <span class="audio-item-duration">{file.duration}</span>}
             </div>
         ))}
     </div>
-    <div>
+    <div class="audio-player-wrapper">
 	<audio id={id} class="audio-player" src={files[0].src} controls loading="lazy"></audio>
     </div>
 </div>
@@ -89,7 +95,7 @@ const filesWithDuration = await Promise.all(
     .audio-item {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: baseline;
         justify-content: space-between;
         background: none;
         border: none;
@@ -97,7 +103,7 @@ const filesWithDuration = await Promise.all(
         cursor: pointer;
         color: inherit;
         font: inherit;
-	padding: 0 1em 0 1em;
+	padding: 0 1em 0 0.5em;
     }
     .audio-item:hover {
 	background-color: var(--pink);
@@ -106,12 +112,25 @@ const filesWithDuration = await Promise.all(
 	background-color: var(--green);
 	color: var(--text-body);
     }
+    .audio-player-wrapper {
+	background-color: var(--dark);
+    }
     .audio-player {
         display: block;
         width: 100%;
     }
     .audio-item-title {
+	display: flex;
+	flex-direction: row;
         font-size: 0.9rem;
+    }
+    .audio-item-index {
+	align-content: center;
+    }
+    .title-main,
+    .title-sub {
+        display: inline-block;
+        white-space: nowrap;
     }
     .audio-item-duration {
         font-size: 0.85rem;
