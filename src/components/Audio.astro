@@ -40,7 +40,7 @@ const filesWithDuration = await Promise.all(
     <div class="audio-list">
         {filesWithDuration.map((file, index) => (
 	<div class:list={["audio-item", { active: index === 0 }]} data-src={file.src}>
-	    <span class="audio-item-title">{index + 1}. {file.title} - {file.subtitle}</span>
+	    <span class="audio-item-title">{index + 1}. {file.title} <span>- {file.subtitle}</span></span>
                 {file.duration && <span class="audio-item-duration">{file.duration}</span>}
             </div>
         ))}
