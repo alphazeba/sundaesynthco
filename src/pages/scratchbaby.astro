@@ -6,6 +6,15 @@ import Audio from '../components/Audio.astro';
 
 import titleScreenshotImg from '../assets/scratchbaby-screenshot-crop.png';
 import logoImg from '../assets/scratchbabylogo.png';
+
+
+const bodyContent = `Part sampler, part performance instrument, completely fun.
+
+Scratch Baby takes the fundamental behavior of a record being moved by hand and turns it into something you can configure, perform, and make your own. Slow it down, speed it up, scratch back and forth, or glide between pitches—all from your MIDI keyboard.
+
+Under the hood, Scratch Baby gives you precise control over how every key activates the sample and jumps between playback speeds. It has immediacy and playability of a turntable without being confined to its limitations. 
+
+See where it will take you..`;
 ---
 
 <Layout title="Scratch Baby">
@@ -44,22 +53,7 @@ import logoImg from '../assets/scratchbabylogo.png';
 					allowfullscreen
 				></iframe>
 			</div>
-			<p> 
-Part sampler, part performance instrument, completely fun.
-
-			</p>
-			<p>
-Scratch Baby takes the fundamental behavior of a record being moved by hand and turns it into something you can configure, perform, and make your own. Slow it down, speed it up, scratch back and forth, or glide between pitches—all from your MIDI keyboard.
-
-			</p>
-			<p>
-Under the hood, Scratch Baby gives you precise control over how every key activates the sample and jumps between playback speeds. It has immediacy and playability of a turntable without being confined to its limitations. 
-
-			</p>
-			<p>
-See where it will take you..
-
-			</p>
+			{bodyContent.split("\n").filter((content) => content.trim().length > 0).map((content) => <p>{content}</p>)}
 		</div>
 		<p class="segment-title">Examples</p>
 		<div class="content-section">
@@ -69,22 +63,17 @@ See where it will take you..
 			    { title: "Alright!", subtitle: "Murder a sample", src: "/audio/alright.mp3" },
 			    { title: "Ghosty", subtitle: "Emote a drone", src: "/audio/ghosty2.mp3" },
 			    { title: "Horns", subtitle: "Hip-hop?", src: "/audio/horns.mp3" },
-			    { title: "Heavyweight", subtitle: "Lofi", src: "/audio/heavyweight.mp3" },
+			    { title: "Heavyweight", subtitle: "Lofi jam", src: "/audio/heavyweight.mp3" },
 			]}
 		    />
 		</div>
 
 		<div class="buttons">
-			<div class="purchase-wrapper-wrapper">
-			    <div class="purchase-wrapper">
-				    <button class="btn btn-purchase" disabled onclick="Moonbase.add_to_cart({ product_id: 'scratch-baby', show_cart: true })">
-					    Purchase — <span data-moonbase-render="product.scratch-baby.price">TBD</span>
-				    </button>
-				    <span class="coming-soon-banner">Coming Soon</span>
-			    </div>
-			</div>
 			<button class="btn btn-trial" onclick="Moonbase.download_product({ product_id: 'scratch-baby' })">
 				Download Trial
+			</button>
+			<button class="btn btn-purchase" disabled onclick="Moonbase.add_to_cart({ product_id: 'scratch-baby', show_cart: true })">
+				Purchase — <span data-moonbase-render="product.scratch-baby.price">TBD</span>
 			</button>
 		</div>
 	</main>
@@ -97,6 +86,7 @@ See where it will take you..
 	:root {
 		--pink: #efa9da;
 		--pink-tint: rgba(239, 169, 218, 0.1);
+		--darkened-pink: #a86293;
 		--dark: #1a2a35;
 		--bg-color: #1e3241;
 		--text-base: #e8e0d4;
@@ -106,6 +96,10 @@ See where it will take you..
 		--gradient-top: rgba(45, 65, 80, 0.4);
 		--gradient-bottom: rgba(30, 50, 65, 0.6);
 		--green: #49796b;
+	}
+
+	body {
+	    background-color: #bcdcf3;
 	}
 
 	.product-page {
@@ -266,40 +260,34 @@ See where it will take you..
 		border: none;
 		cursor: pointer;
 		transition: transform 0.15s ease, box-shadow 0.15s ease;
+		flex: 1;
+		min-width: 15em;
+		max-width: 20em;
+
+		background: var(--pink);
+		color: var(--dark);
+		border: 2px solid var(--dark);
 	}
 
 	.btn:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 8px 25px var(--btn-shadow);
 	}
+	.btn:disabled {
+	    background: var(--darkened-pink);
+	    cursor: default;
+	}
+	.btn:disabled:hover {
+	    transform: none;
+	    box-shadow: none;
+	}
 
 	.btn-purchase {
-		background: var(--pink);
-		color: var(--dark);
-		border: 2px solid var(--dark);
-	}
-
-	.btn-purchase:hover {
-		background: var(--pink);
-	}
-
-	.purchase-wrapper {
 		position: relative;
-		display: inline-block;
 		overflow: hidden;
-		border-radius: 8px;
 	}
-
-	.purchase-wrapper-wrapper {
-	    margin: 0 1rem;
-	}
-	.purchase-wrapper .btn-purchase {
-		cursor: not-allowed;
-		pointer-events: none;
-		margin: 1px;
-	}
-
-	.coming-soon-banner {
+	.btn-purchase::after {
+		content: "coming soon";
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -307,7 +295,7 @@ See where it will take you..
 		background: var(--text-body);
 		color: var(--dark);
 		font-weight: 700;
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		padding: 0.35rem 0;
@@ -319,16 +307,6 @@ See where it will take you..
 		-webkit-user-select: none;
 		border-top: 2px solid var(--dark);
 		border-bottom: 2px solid var(--dark);
-	}
-
-	.btn-trial {
-		background: transparent;
-		color: var(--pink);
-		border: 2px solid var(--pink);
-	}
-
-	.btn-trial:hover {
-		background: var(--pink-tint);
 	}
 
 	@media (max-width: 500px) {
