@@ -8,6 +8,10 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Style Guide
+
+- All imports in Astro files should use root-based pathing via the `@/` alias (mapped to `src/` in `tsconfig.json`) instead of relative pathing. For example, use `import Layout from '@/layouts/Layout.astro'` rather than `import Layout from '../../layouts/Layout.astro'`. This keeps imports stable when files move and avoids counting `../` segments.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
