@@ -1,32 +1,15 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import InstallMoonbase from '@/components/InstallMoonbase.astro';
 import Audio from '@/components/Audio.astro';
+import { Content } from '@/content/scratchbaby_body.md';
 
 import titleScreenshotImg from '@/assets/scratchbaby-screenshot-crop.png';
 import logoImg from '@/assets/scratchbabylogo.png';
-
-
-const bodyContent = `Part sampler, part performance instrument, completely fun.
-
-Scratch Baby takes the fundamental behavior of a record being moved by hand and turns it into something you can configure, perform, and make your own. Slow it down, speed it up, scratch back and forth, or glide between pitches—all from your MIDI keyboard.
-
-Under the hood, Scratch Baby gives you precise control over how every key activates the sample and jumps between playback speeds. It has immediacy and playability of a turntable without being confined to its limitations. 
-
-See where it will take you..`;
 ---
 
 <Layout title="Scratch Baby">
 	<main class="product-page">
-		<button class="cart-icon" onclick="Moonbase.view_cart()" aria-label="Open cart">
-			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-				<line x1="3" y1="6" x2="21" y2="6"></line>
-				<path d="M16 10a4 4 0 0 1-8 0"></path>
-			</svg>
-		</button>
-
 		<h1 class="sr-only">Scratch Baby</h1>
 
 		<div class="screenshot-container">
@@ -41,8 +24,7 @@ See where it will take you..`;
 			</div>
 		</div>
 
-		<p class="segment-title">Playable Turntable Sampler</p>
-
+		<h1 id="subtitle">Playable Turntable Sampler</h1>
 		<div class="content-section">
 			<div class="video-wrapper">
 				<iframe
@@ -53,9 +35,9 @@ See where it will take you..`;
 					allowfullscreen
 				></iframe>
 			</div>
-			{bodyContent.split("\n").filter((content) => content.trim().length > 0).map((content) => <p>{content}</p>)}
+			<Content />
 		</div>
-		<p class="segment-title">Examples</p>
+		<h1 id="Examples">Examples</h1>
 		<div class="content-section">
 		    <Audio
 			id="onlyone"
@@ -67,7 +49,8 @@ See where it will take you..`;
 			]}
 		    />
 		</div>
-
+		<h1 id="buy">What's next?</h1>
+		<p>Read the <a href="/scratchbaby/manual">manual</a>!</p>
 		<div class="buttons">
 			<button class="btn btn-trial" onclick="Moonbase.download_product({ product_id: 'scratch-baby' })">
 				Download Trial
@@ -77,98 +60,8 @@ See where it will take you..`;
 			</button>
 		</div>
 	</main>
-	<InstallMoonbase/>
 </Layout>
-
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-
-	:root {
-		--pink: #efa9da;
-		--pink-tint: rgba(239, 169, 218, 0.1);
-		--darkened-pink: #a86293;
-		--dark: #1a2a35;
-		--bg-color: #1e3241;
-		--text-base: #e8e0d4;
-		--text-body: #fbf1da;
-		--yellow-shadow: #dfc47b;
-		--btn-shadow: rgba(0, 0, 0, 0.3);
-		--gradient-top: rgba(45, 65, 80, 0.4);
-		--gradient-bottom: rgba(30, 50, 65, 0.6);
-		--green: #49796b;
-	}
-
-	body {
-	    background-color: #bcdcf3;
-	}
-
-	.product-page {
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 4rem 3rem;
-		background:
-			linear-gradient(180deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%),
-			url('/sky_background.jpg') center / cover no-repeat;
-		background-color: var(--bg-color);
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		color: var(--text-base);
-	}
-
-	.cart-icon {
-		position: fixed;
-		top: -10px;
-		right: 1.5rem;
-		z-index: 100;
-		background: var(--pink);
-		color: var(--dark);
-		border: 2px solid var(--dark);
-		border-radius: 0 0 8px 8px;
-		width: 2.5rem;
-		height: 3rem;
-		padding-top: 10px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		transition: transform 0.15s ease;
-	}
-
-	.cart-icon:hover {
-		transform: translateY(4px);
-	}
-
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
-	}
-
-	.segment-title {
-		font-family: 'Shrikhand', cursive;
-		font-size: clamp(1.5rem, 4vw, 2.5rem);
-		color: var(--pink);
-		margin: 0 0 1.5rem;
-		font-weight: 400;
-		text-align: center;
-		-webkit-text-stroke: 4px var(--dark);
-		paint-order: stroke fill;
-	}
-
-	.screenshot-container {
-		position: relative;
-		width: 100%;
-		max-width: 900px;
-		margin-bottom: 1rem;
-	}
-
 	.peek-logo {
 		position: absolute;
 		bottom: 25%;

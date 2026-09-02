@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+:root {
+	--pink: #efa9da;
+	--pink-tint: rgba(239, 169, 218, 0.1);
+	--darkened-pink: #a86293;
+	--dark: #1a2a35;
+	--bg-color: #1e3241;
+	--text-base: #e8e0d4;
+	--text-body: #fbf1da;
+	--yellow-shadow: #dfc47b;
+	--btn-shadow: rgba(0, 0, 0, 0.3);
+	--gradient-top: rgba(45, 65, 80, 0.4);
+	--gradient-bottom: rgba(30, 50, 65, 0.6);
+	--green: #49796b;
+}
+
+body {
+	background-color: #bcdcf3;
+}
+
+.product-page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 4rem 3rem;
+	background:
+		linear-gradient(180deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%),
+		url('/sky_background.jpg') center / cover no-repeat;
+	background-color: var(--bg-color);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	color: var(--text-base);
+}
+
+.cart-icon {
+	position: fixed;
+	top: -10px;
+	right: 1.5rem;
+	z-index: 100;
+	background: var(--pink);
+	color: var(--dark);
+	border: 2px solid var(--dark);
+	border-radius: 0 0 8px 8px;
+	width: 2.5rem;
+	height: 3rem;
+	padding-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 0.15s ease;
+}
+
+.cart-icon:hover {
+	transform: translateY(4px);
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+h1, .segment-title {
+	font-family: 'Shrikhand', cursive;
+	font-size: clamp(1.5rem, 4vw, 2.5rem);
+	color: var(--pink);
+	margin: 0 0 1.5rem;
+	font-weight: 400;
+	text-align: center;
+	-webkit-text-stroke: 4px var(--dark);
+	paint-order: stroke fill;
+}
+
+
+.screenshot-container {
+	position: relative;
+	width: 100%;
+	max-width: 900px;
+	margin-bottom: 1rem;
+}

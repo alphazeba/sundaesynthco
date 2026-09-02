@@ -1,6 +1,8 @@
 ---
 import { getImage } from 'astro:assets';
 import logo from '@/assets/scratchbabylogo.png';
+import '@/styles/base.css';
+import InstallMoonbase from '@/components/InstallMoonbase.astro';
 
 interface Props {
 	title?: string;
@@ -20,6 +22,7 @@ const favicon = await getImage({ src: logo, format: 'png' });
 		<title>{title}</title>
 	</head>
 	<body>
+		<InstallMoonbase />
 		<slot />
 	</body>
 </html>
