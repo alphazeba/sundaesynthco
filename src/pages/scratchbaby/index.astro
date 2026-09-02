@@ -50,13 +50,18 @@ import logoImg from '@/assets/scratchbabylogo.png';
 		    />
 		</div>
 		<h1 id="buy">What's next?</h1>
-		<p>Read the <a href="/scratchbaby/manual">manual</a>!</p>
 		<div class="buttons">
 			<button class="btn btn-trial" onclick="Moonbase.download_product({ product_id: 'scratch-baby' })">
 				Download Trial
 			</button>
 			<button class="btn btn-purchase" disabled onclick="Moonbase.add_to_cart({ product_id: 'scratch-baby', show_cart: true })">
 				Purchase — <span data-moonbase-render="product.scratch-baby.price">TBD</span>
+			</button>
+			<a class="btn" href="/scratchbaby/manual">
+			    Manual
+			</a>
+			<button class="btn">
+			    Feedback
 			</button>
 		</div>
 	</main>
@@ -143,12 +148,18 @@ import logoImg from '@/assets/scratchbabylogo.png';
 	}
 
 	.btn {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		box-sizing: border-box;
 		padding: 1rem 2.5rem;
 		margin: 0 1rem;
 		border-radius: 8px;
 		font-size: 1.1rem;
 		font-weight: 700;
+		line-height: 1;
+		font-family: inherit;
 		text-decoration: none;
 		border: none;
 		cursor: pointer;
