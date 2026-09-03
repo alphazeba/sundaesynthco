@@ -13,12 +13,57 @@
 	--gradient-top: rgba(45, 65, 80, 0.4);
 	--gradient-bottom: rgba(30, 50, 65, 0.6);
 	--green: #49796b;
+	--blue: #b3dcf7;
+	--dark-blue: #00a7c1;
 }
 
 body {
 	background-color: #bcdcf3;
 }
 
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 1rem 2.5rem;
+	margin: 0 1rem;
+	border-radius: 8px;
+	font-size: 1.1rem;
+	font-weight: 700;
+	line-height: 1;
+	font-family: inherit;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+	flex: 1;
+	min-width: 15em;
+	max-width: 20em;
+
+	background: var(--pink);
+	color: var(--dark);
+	border: 2px solid var(--dark);
+}
+
+.btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px var(--btn-shadow);
+}
+.btn:disabled {
+    background: var(--darkened-pink);
+    filter: saturate(0.5);
+    cursor: default;
+}
+.btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.lesser-button {
+    background: var(--dark-blue);
+}
 .product-page {
 	min-height: 100vh;
 	display: flex;
@@ -52,6 +97,11 @@ body {
 	transition: transform 0.15s ease;
 }
 
+.emoji {
+    font-size: 2em;
+    margin-top: -0.5em;
+    margin-bottom: -0.5em;
+}
 .cart-icon:hover {
 	transform: translateY(4px);
 }
@@ -87,7 +137,7 @@ h2, h3, h4 {
 
 h3, h4 {
     font-size: clamp(1rem, 2vw, 1.5rem);
-    color: var(--green);
+    color: var(--blue);
 }
 
 .manual-page p {

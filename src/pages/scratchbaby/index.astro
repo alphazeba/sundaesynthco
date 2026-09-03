@@ -57,16 +57,23 @@ import logoImg from '@/assets/scratchbabylogo.png';
 			<button class="btn btn-purchase" disabled onclick="Moonbase.add_to_cart({ product_id: 'scratch-baby', show_cart: true })">
 				Purchase — <span data-moonbase-render="product.scratch-baby.price">TBD</span>
 			</button>
-			<a class="btn" href="/scratchbaby/manual">
-			    Manual
+		</div>
+		<div class="buttons">
+			<a class="btn lesser-button" href="/scratchbaby/manual">
+			    Read the manual
 			</a>
-			<button class="btn">
-			    Feedback
+			<button class="btn lesser-button empty">
+			    Tell us what you think
 			</button>
 		</div>
 	</main>
 </Layout>
 <style>
+	.empty {
+	    background-color: transparent;
+	    color: var(--text-body);
+	    border-color: var(--text-body);
+	}
 	.peek-logo {
 		position: absolute;
 		bottom: 25%;
@@ -147,49 +154,11 @@ import logoImg from '@/assets/scratchbabylogo.png';
 		clear: both;
 	}
 
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		box-sizing: border-box;
-		padding: 1rem 2.5rem;
-		margin: 0 1rem;
-		border-radius: 8px;
-		font-size: 1.1rem;
-		font-weight: 700;
-		line-height: 1;
-		font-family: inherit;
-		text-decoration: none;
-		border: none;
-		cursor: pointer;
-		transition: transform 0.15s ease, box-shadow 0.15s ease;
-		flex: 1;
-		min-width: 15em;
-		max-width: 20em;
-
-		background: var(--pink);
-		color: var(--dark);
-		border: 2px solid var(--dark);
-	}
-
-	.btn:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px var(--btn-shadow);
-	}
-	.btn:disabled {
-	    background: var(--darkened-pink);
-	    cursor: default;
-	}
-	.btn:disabled:hover {
-	    transform: none;
-	    box-shadow: none;
-	}
-
 	.btn-purchase {
 		position: relative;
 		overflow: hidden;
 	}
+
 	.btn-purchase::after {
 		content: "coming soon";
 		position: absolute;

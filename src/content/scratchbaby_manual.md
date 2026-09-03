@@ -16,11 +16,11 @@ Shifts the pitch of all perform keys up or down by one semitone, or anywhere in 
 
 ### Attack
 
-Changes the base attack time of every perform key. Gas is a multiple of this value.
+Changes the base attack time of every perform key. Perform key attack is a multiple of this value.
 
 ### Release
 
-Changes the base release time of every perform key. Brake is a multiple of this value.
+Changes the base release time of every perform key. Perform key release is a multiple of this value.
 
 ### Interp
 
@@ -62,7 +62,7 @@ The mode button is directly beneath the Perform Key header. Clicking the mode bu
     - will move the playhead backwards in time.
 - Cue Only 
     - lets you utilize a Cue Point without activating playback.
-    - *Be aware* that Cue Only will have *no effect* if a cue point is not set and will not generate any sound as the only Perform Key being played.
+    - *Be aware* that Cue Only will have **no effect** if a cue point is not set and will not generate any sound as the only Perform Key being played.
 
 ### Attack
 
@@ -74,7 +74,7 @@ Speed determines how far the pitch is shifted from the original sample. Its rang
 
 ### Release
 
-Brake sets the amount of time it takes to decelerate the playhead from the desired speed to stationary.
+Perform key release sets the amount of time it takes to decelerate the playhead from the desired speed to stationary.
 
 ## Fader Key
 

@@ -5,18 +5,34 @@ import { Content } from '@/content/scratchbaby_manual.md';
 
 <Layout title="Scratch Baby — Manual">
     <div class="product-page">
-	<main class="manual-page">
+	<main class="manual-page bottom-space">
 	    <Content />
 	</main>
+	<a class="btn lesser-button" href="/scratchbaby">← Back to Scratch Baby</a>
     </div>
 </Layout>
 
 <style>
+	.bottom-space {
+	    margin-bottom: 2rem;
+	}
 	.manual-page {
 		min-height: 100vh;
-		padding: 4rem 3rem;
+		padding: 0 3rem;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 		width: 100%;
 		max-width: 900px;
+	}
+
+	.back-link {
+		display: inline-block;
+		margin: 1rem 0;
+		font-weight: 700;
+		color: var(--pink);
+		text-decoration: none;
+	}
+
+	.back-link:hover {
+		text-decoration: underline;
 	}
 </style>
